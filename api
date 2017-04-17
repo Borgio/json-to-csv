@@ -1,0 +1,22 @@
+import json
+import csv
+
+open_json= open ('/Users/nishit/api/bootswatch','r')
+data=json.load(open_json)
+
+#aai = 0  #changing i value from 0 to 16
+i = 3
+while i<=16:
+    data1 = [data['themes'][i]['name'],data['themes'][i]['description'],data['themes'][i]['thumbnail'],
+         data['themes'][i]['preview'],data['themes'][i]['css'],data['themes'][i]['cssMin'],
+         data['themes'][i]['cssCdn'],data['themes'][i]['less'],data['themes'][i]['lessVariables'],
+         data['themes'][i]['scss'],data['themes'][i]['scssVariables']]
+    b=open('test.csv','a')
+    writer=csv.writer(b)
+#writer.writerow(['name','description','thumbnail','preview','css','cssMin','cssCdn','less','lessVariables','scss','scssVariables'])
+#b=open('test.csv''a')
+    writer.writerow(data1)
+    i+=1
+
+
+
